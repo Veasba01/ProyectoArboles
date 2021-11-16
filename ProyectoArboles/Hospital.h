@@ -1,6 +1,37 @@
-#ifndef HOSPITAL_H
-#define HOSPITAL_H
+#include <sstream>
+using namespace std;
 class Hospital{
-	
+private:
+	int id;
+	string provincia;
+public:
+	Hospital(){
+		this->id=0;
+		this->provincia="";
+		
+	}
+	Hospital(int id, string provincia){
+		this->id=id;
+		this->provincia=provincia;
+	}
+		void setId(int id){
+			this->id=id;
+		}
+			int getId(){
+				return this->id;
+			}
+				void setProvincia(string provincia){
+					this->provincia=provincia;
+				}
+					string getProvincia(){
+						return this->provincia;
+					}					
+						string toString(){
+							stringstream out;
+							out
+							    <<"Id del Hospital: "<<id<<endl
+								<<"Provincia del hospital: "<<provincia<<endl
+								<<"======================"<<endl;
+							return out.str();
+						}
 };
-#endif
