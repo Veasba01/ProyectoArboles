@@ -5,15 +5,14 @@ using namespace std;
 #include "NodoHospital.h"
 #include "ArbolHospital.h"
 void menuhospital(){
-	int opcion=0, opc=0;
-	int id=0;
-	string provincia ="";
+	int opc=0, id=0;
+	string provincia ="", nombreHosp = "";
 	Hospital hospital;
 	ArbolHospital *arbolHospital = new ArbolHospital();
 	do{
 		system("cls");
 		cout<<"\t****MENU DE PROVINCIAS****"<<endl
-			<<"1. San José"<<endl
+			<<"1. San Jose"<<endl
 			<<"2. Alajuela"<<endl
 			<<"3. Cartago"<<endl
 			<<"4. Heredia"<<endl
@@ -25,108 +24,134 @@ void menuhospital(){
 		cin>>opc;
 		switch(opc){
 		case 1:
-			system("cls");
-			provincia ="San Jose";			
+			system("cls");				
 			cout<<"Rango de ID valido: 100 - 199"<<endl;
 			cout<<"Digite el ID del hospital: "<<endl;
 			cin>>id;
-			if(id < 100 && id >199){
+			if(id > 100 && id <= 199){
+				cout<<"Digite el Nombre del hospital: "<<endl;
+				cin>>nombreHosp;
+				provincia ="San Jose";
+				hospital.setNombreHosp(nombreHosp);
 				hospital.setId(id);
 				hospital.setProvincia(provincia);
 				arbolHospital->insertarNodo(arbolHospital->raizPtr,hospital);
-				opc=0;
 			}else{
-				cout<<"El Hospital no fue agregado intentelo de nuevo";
+				cout<<"ID invalido intentelo de nuevo";
 			}
 			system("pause");
 			   break;
 		case 2:
-			provincia ="Alajuela";				
+			system("cls");			
 			cout<<"Rango de ID válido: 200 - 299"<<endl;
 			cout<<"Digite el ID del hospital: "<<endl;
 			cin>>id;
-			if(id < 200 && id >299){
+			if(id > 200 && id <= 299){
+				cout<<"Digite el Nombre del hospital: "<<endl;
+				cin>>nombreHosp;
+				provincia ="Alajuela";	
+				hospital.setNombreHosp(nombreHosp);
 				hospital.setId(id);
 				hospital.setProvincia(provincia);
 				arbolHospital->insertarNodo(arbolHospital->raizPtr,hospital);
 				opc=0;
 			}else{
-				cout<<"El Hospital no fue agregado intentelo de nuevo";
+				cout<<"ID invalido intentelo de nuevo";
 			}
 			system("pause");
 			   break;
 		case 3:
-			provincia ="Cartago";
+			system("cls");
 			cout<<"Rango de ID válido: 300 - 399"<<endl;
 			cout<<"Digite el ID del hospital: "<<endl;
 			cin>>id;
-			if(id < 300 && id >399){
+			if(id > 300 && id <= 399){
+				cout<<"Digite el Nombre del hospital: "<<endl;
+				cin>>nombreHosp;
+				provincia ="Cartago";
+				hospital.setNombreHosp(nombreHosp);
 				hospital.setId(id);
 				hospital.setProvincia(provincia);
 				arbolHospital->insertarNodo(arbolHospital->raizPtr,hospital);
 				opc=0;
 			}else{
-				cout<<"El Hospital no fue agregado intentelo de nuevo";
+				cout<<"ID invalido intentelo de nuevo";
 			}
 			system("pause");
 			   break;
 		case 4:
-			provincia ="Heredia";
+			system("cls");
 			cout<<"Rango de ID válido: 400 - 499"<<endl;
 			cout<<"Digite el ID del hospital: "<<endl;
 			cin>>id;
-			if(id < 400 && id >499){
+			if(id > 400 && id <= 499){
+				cout<<"Digite el Nombre del hospital: "<<endl;
+				cin>>nombreHosp;
+				provincia ="Heredia";
+				hospital.setNombreHosp(nombreHosp);
 				hospital.setId(id);
 				hospital.setProvincia(provincia);
 				arbolHospital->insertarNodo(arbolHospital->raizPtr,hospital);
 				opc=0;
 			}else{
-				cout<<"El Hospital no fue agregado intentelo de nuevo";
+				cout<<"ID invalido intentelo de nuevo";
 			}
 			system("pause");
 			   break;
 		case 5:
-			provincia ="Guanacaste";
+			system("cls");
 			cout<<"Rango de ID válido: 500 - 599"<<endl;
 			cout<<"Digite el ID del hospital: "<<endl;
 			cin>>id;
-			if(id < 500 && id >599){
+			if(id > 500 && id <= 599){
+				cout<<"Digite el Nombre del hospital: "<<endl;
+				cin>>nombreHosp;
+				provincia ="Guanacaste";
+				hospital.setNombreHosp(nombreHosp);
 				hospital.setId(id);
 				hospital.setProvincia(provincia);
 				arbolHospital->insertarNodo(arbolHospital->raizPtr,hospital);
 				opc=0;
 			}else{
-				cout<<"El Hospital no fue agregado intentelo de nuevo";
+				cout<<"ID invalido intentelo de nuevo";
 			}
 			system("pause");
 			   break;
 		case 6:
-			provincia ="Puntarenas";
+			system("cls");
 			cout<<"Rango de ID válido: 600 - 699"<<endl;
 			cout<<"Digite el ID del hospital: "<<endl;
 			cin>>id;
-			if(id < 600 && id >699){
+			if(id > 600 && id <= 699){
+				cout<<"Digite el Nombre del hospital: "<<endl;
+				cin>>nombreHosp;
+				provincia ="Puntarenas";
+				hospital.setNombreHosp(nombreHosp);
 				hospital.setId(id);
 				hospital.setProvincia(provincia);
 				arbolHospital->insertarNodo(arbolHospital->raizPtr,hospital);
 				opc=0;
 			}else{
-				cout<<"El Hospital no fue agregado intentelo de nuevo";
+				cout<<"ID invalido intentelo de nuevo";
 			}
 			system("pause");
 			   break;
 		case 7:
-			provincia ="Limon";
+			system("cls");			
 			cout<<"Rango de ID válido: 700 - 799"<<endl;
 			cout<<"Digite el ID del hospital: "<<endl;
 			cin>>id;
-			if(id < 700 && id >799){
+			if(id > 700 && id <= 799){
+				cout<<"Digite el Nombre del hospital: "<<endl;
+				cin>>nombreHosp;
+				provincia ="Limon";
+				hospital.setNombreHosp(nombreHosp);
 				hospital.setId(id);
 				hospital.setProvincia(provincia);
 				arbolHospital->insertarNodo(arbolHospital->raizPtr,hospital);
 				opc=0;
 			}else{
-				cout<<"El Hospital no fue agregado intentelo de nuevo";
+				cout<<"ID invalido intentelo de nuevo";
 			}
 			system("pause");
 			   break;
@@ -136,8 +161,7 @@ void menuhospital(){
 }
 	
 	void Menu(){
-		int opcion=0, opc=0;
-		int id=0;
+		int opcion=0;
 		string provincia ="";
 		Hospital hospital;
 		ArbolHospital *arbolHospital = new ArbolHospital();

@@ -3,7 +3,7 @@ using namespace std;
 class Hospital{
 private:
 	int id;
-	string provincia;
+	string provincia, nombreHosp;
 public:
 	Hospital(){
 		this->id=0;
@@ -25,12 +25,19 @@ public:
 	}
 	string getProvincia(){
 		return this->provincia;
-	}					
+	}
+	void setNombreHosp(string nombreHosp){
+		this->provincia=provincia;
+	}
+	string getNombreHosp(){
+		return this->nombreHosp;
+	}			
 	string toString(){
 		stringstream out;
 		out
 			<<"Id del Hospital: "<<id<<endl
 			<<"Provincia del hospital: "<<provincia<<endl
+			<<"Nombre del Hospital: "<<nombreHosp<<endl
 			<<"======================"<<endl;
 		return out.str();
 	}
