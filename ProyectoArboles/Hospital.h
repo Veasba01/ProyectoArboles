@@ -27,7 +27,7 @@ public:
 		return this->provincia;
 	}
 	void setNombreHosp(string nombreHosp){
-		this->provincia=provincia;
+		this->nombreHosp=nombreHosp;
 	}
 	string getNombreHosp(){
 		return this->nombreHosp;
@@ -35,6 +35,7 @@ public:
 	string toString(){
 		stringstream out;
 		out
+			<<"======================"<<endl
 			<<"Id del Hospital: "<<id<<endl
 			<<"Provincia del hospital: "<<provincia<<endl
 			<<"Nombre del Hospital: "<<nombreHosp<<endl
