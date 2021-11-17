@@ -1,6 +1,7 @@
 #ifndef ARBOLHOSPITAL_H
 #define ARBOLHOSPITAL_H
 class ArbolHospital{
+public:
 	NodoHospital *raizPtr;//Cabeza
 	int auxX=0;
 	
