@@ -12,6 +12,10 @@ int main (int argc, char *argv[]) {
 	int opc=0, id=0, opcion=0;
 	string provincia ="", nombreHosp = "";
 	Hospital hospital;
+	Ebais ebais;
+	string nombre, director, especialidades;
+	int numUsuarios, cantEsp;
+	
 	ArbolHospital *arbolhospital = new ArbolHospital();
 	ArbolEbais *arbolebais = new ArbolEbais();
  	do{
@@ -58,12 +62,13 @@ int main (int argc, char *argv[]) {
 						opc=0;
 					}else{
 						cout<<"ID invalido intentelo de nuevo";
+						opc=0;
 					}
 					system("pause");
 					break;
 				case 2:
 					system("cls");			
-					cout<<"Rango de ID válido: 200 - 299"<<endl;
+					cout<<"Rango de ID valido: 200 - 299"<<endl;
 					cout<<"Digite el ID del hospital: "<<endl;
 					cin>>id;
 					if(id > 200 && id <= 299){
@@ -77,12 +82,13 @@ int main (int argc, char *argv[]) {
 						opc=0;
 					}else{
 						cout<<"ID invalido intentelo de nuevo";
+						opc=0;
 					}
 					system("pause");
 					break;
 				case 3:
 					system("cls");
-					cout<<"Rango de ID válido: 300 - 399"<<endl;
+					cout<<"Rango de ID valido: 300 - 399"<<endl;
 					cout<<"Digite el ID del hospital: "<<endl;
 					cin>>id;
 					if(id > 300 && id <= 399){
@@ -96,12 +102,13 @@ int main (int argc, char *argv[]) {
 						opc=0;
 					}else{
 						cout<<"ID invalido intentelo de nuevo";
+						opc=0;
 					}
 					system("pause");
 					break;
 				case 4:
 					system("cls");
-					cout<<"Rango de ID válido: 400 - 499"<<endl;
+					cout<<"Rango de ID valido: 400 - 499"<<endl;
 					cout<<"Digite el ID del hospital: "<<endl;
 					cin>>id;
 					if(id > 400 && id <= 499){
@@ -115,12 +122,13 @@ int main (int argc, char *argv[]) {
 						opc=0;
 					}else{
 						cout<<"ID invalido intentelo de nuevo";
+						opc=0;
 					}
 					system("pause");
 					break;
 				case 5:
 					system("cls");
-					cout<<"Rango de ID válido: 500 - 599"<<endl;
+					cout<<"Rango de ID valido: 500 - 599"<<endl;
 					cout<<"Digite el ID del hospital: "<<endl;
 					cin>>id;
 					if(id > 500 && id <= 599){
@@ -134,12 +142,13 @@ int main (int argc, char *argv[]) {
 						opc=0;
 					}else{
 						cout<<"ID invalido intentelo de nuevo";
+						opc=0;
 					}
 					system("pause");
 					break;
 				case 6:
 					system("cls");
-					cout<<"Rango de ID válido: 600 - 699"<<endl;
+					cout<<"Rango de ID valido: 600 - 699"<<endl;
 					cout<<"Digite el ID del hospital: "<<endl;
 					cin>>id;
 					if(id > 600 && id <= 699){
@@ -153,12 +162,13 @@ int main (int argc, char *argv[]) {
 						opc=0;
 					}else{
 						cout<<"ID invalido intentelo de nuevo";
+						opc=0;
 					}
 					system("pause");
 					break;
 				case 7:
 					system("cls");			
-					cout<<"Rango de ID válido: 700 - 799"<<endl;
+					cout<<"Rango de ID valido: 700 - 799"<<endl;
 					cout<<"Digite el ID del hospital: "<<endl;
 					cin>>id;
 					if(id > 700 && id <= 799){
@@ -172,6 +182,7 @@ int main (int argc, char *argv[]) {
 						opc=0;
 					}else{
 						cout<<"ID invalido intentelo de nuevo";
+						opc=0;
 					}
 					system("pause");
 					break;
@@ -199,8 +210,31 @@ int main (int argc, char *argv[]) {
 			system("pause");
 			break;
 		case 6:
-			system("cls");	
-			
+			system("cls");
+			cout<<"Digite el ID del hospital que desea agregar este Ebais: "<<endl;
+			cin>>id;
+			if(arbolhospital->buscarHospital(arbolhospital->raizPtr,id) == true){
+				cout<<"Digite el Nombre del Ebais: "<<endl;
+				cin>>nombre;
+				cout<<"Digite el Director del Ebais: "<<endl;
+				cin>>director;
+				cout<<"Digite el Numero de usuarios en el Ebais: "<<endl;
+				cin>>numUsuarios;
+				cout<<"Cuantas Especialidades tendra el Ebais?: "<<endl;
+				cin>>cantEsp;
+				cout<<"Digite las especialidades: "<<endl;
+				cin>>especialidades;
+				ebais.setId(id);
+				ebais.setNombre(nombre);
+				ebais.setDirector(director);
+				ebais.setNumUsuarios(numUsuarios);
+				ebais.setEspecialidades(especialidades);
+				arbolebais->insertarNodo(arbolebais->raizPtr,ebais);
+				
+			}else{
+				cout<<"Este Hospital no existe, intentelo de nuevo"<<endl;
+				
+			}
 			system("pause");
 			break;
 		}
@@ -208,4 +242,5 @@ int main (int argc, char *argv[]) {
 	
 	return 0;
 }
+
 

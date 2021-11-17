@@ -34,11 +34,11 @@ public:
 			NodoEbais *nuevo_nodo=crearNodo(ebais);
 			raizPtr=nuevo_nodo;
 		}else {
-			string valorRaiz = (raizPtr)->getEbais().getNombre();
-			if(ebais .getNombre() != valorRaiz){
+			int valorRaiz = (raizPtr)->getEbais(). getId();
+			if(ebais.getId() < valorRaiz){
 				insertarNodo(raizPtr->izquierdaPtr,ebais);
-			}else if (ebais.getNombre()== valorRaiz){
-				cout<<"Nombre Repetido"<<endl;
+			}else if (ebais.getId()==valorRaiz){
+				cout<<"Ebais repetido"<<endl;
 				system("pause>0" );
 			}else { 
 				insertarNodo(raizPtr->derechaPtr,ebais);

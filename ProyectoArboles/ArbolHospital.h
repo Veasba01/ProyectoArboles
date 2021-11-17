@@ -5,7 +5,6 @@ public:
 	NodoHospital *raizPtr;//Cabeza
 	int auxX=0;
 	
-	
 	ArbolHospital(){
 		this->raizPtr=NULL;
 	}
@@ -81,5 +80,18 @@ public:
 			
 		}
 	}
+   bool buscarHospital(NodoHospital *&raizPtr, int id){
+	   int valorRaiz = (raizPtr)->getHospital(). getId();
+	   if(id < valorRaiz){
+		   buscarHospital(raizPtr->izquierdaPtr,id);
+		   return false;
+	   }else if (id==valorRaiz){
+		   return true;
+		   system("pause>0" );
+	   }else { 
+		   buscarHospital(raizPtr->derechaPtr,id);
+		   return false;
+	   }
+   }
 };
 #endif

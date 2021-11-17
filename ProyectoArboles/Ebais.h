@@ -4,19 +4,21 @@ class Ebais{
 private:
 	string nombre;
 	string director;
-	int numUsuarios;
+	int numUsuarios, id;
 	string especialidades;
 public:
 	Ebais(){
 		this->nombre="";
 		this->director="";
 		this->numUsuarios=0;
+		this->id=0;
 		this->especialidades="";
 	}
-	Ebais(string nombre, string director, int numUsuarios, string especialidades){
+	Ebais(string nombre, string director, int numUsuarios, int id, string especialidades){
 		this->nombre=nombre;
 		this->director=director;
 		this->numUsuarios=numUsuarios;
+		this->id=id;
 		this->especialidades=especialidades;
 	}
 	void setNombre(string nombre){
@@ -35,9 +37,15 @@ public:
 	void setNumUsuarios(int numUsuarios){
 		this->numUsuarios=numUsuarios;
 	}
-		int getNumUsuarios(){
-			return this->numUsuarios;
-		}
+	int getNumUsuarios(){
+		return this->numUsuarios;
+	}
+	void setId(int id){
+		this->id=id;
+	}
+	int getId(){
+		return this->id;
+	}
 	void setEspecialidades(string especialidades){
 		this->especialidades=especialidades;
 	}
