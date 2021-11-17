@@ -1,6 +1,7 @@
 #include <sstream>
 using namespace std;
 class Hospital{
+
 private:
 	int id;
 	string provincia, nombreHosp;

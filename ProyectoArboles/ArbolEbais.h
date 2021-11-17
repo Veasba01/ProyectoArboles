@@ -21,17 +21,17 @@ public:
 	}
 	//Crea un NodoArbolEbais con informacion
 	// Sin Enlaces asignados
-	NodoArbol *crearNodo(int dato){
-		NodoArbol *nuevo_nodo = new NodoEbais();
+	NodoEbais *crearNodo(int dato){
+		NodoEbais *nuevo_nodo = new NodoEbais();
 		nuevo_nodo->setDato(dato);
 		nuevo_nodo->setIzquierdaPtr(NULL);
 		nuevo_nodo->setDerechaPtr(NULL);
 		return nuevo_nodo;
 	}
 	
-	void insertarNodo(NodoArbol *&raizPtr, int dato){
+	void insertarNodo(NodoEbais *&raizPtr, int dato){
 		if(raizPtr==NULL){
-			NodoArbol *nuevo_nodo=crearNodo(dato);
+			NodoEbais *nuevo_nodo=crearNodo(dato);
 			raizPtr=nuevo_nodo;
 		}else{
 			int valorRaiz = (raizPtr)->getDato();
@@ -51,7 +51,7 @@ public:
 		coordinate.Y=y;
 		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coordinate);
 	}
-	void imprimirArbol(NodoArbol *raizPtr, int auxY){
+	void imprimirArbol(NodoEbais *raizPtr, int auxY){
 		if(raizPtr==NULL){
 			return;
 		}else{
@@ -63,21 +63,21 @@ public:
 		}
 	}
 		
-	void preOrden(NodoArbol *raizPtr){//RID
+	void preOrden(NodoEbais *raizPtr){//RID
 		if(raizPtr!=NULL){
 			cout<<raizPtr->getDato()<<" ";
 			preOrden(raizPtr->getIzquierdaPtr());
 			preOrden(raizPtr->getDerechaPtr());
 		}
 	}
-	void postOrden(NodoArbol *raizPtr){//IDR
+	void postOrden(NodoEbais *raizPtr){//IDR
 		if(raizPtr!=NULL){
 			postOrden(raizPtr->getIzquierdaPtr());
 			postOrden(raizPtr->getDerechaPtr());
 			cout<<raizPtr->getDato()<<" ";
 		}
 	}
-	void enOrden(NodoArbol *raizPtr){//IRD
+	void enOrden(NodoEbais *raizPtr){//IRD
 		if(raizPtr!=NULL){
 			enOrden(raizPtr->getIzquierdaPtr());
 			cout<<raizPtr->getDato()<<" ";
