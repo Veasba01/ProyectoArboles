@@ -54,7 +54,7 @@ public:
 			auxX+=4;
 			imprimirArbol(raizPtr->getIzquierdaPtr(),auxY+2);
 			gotoxy(1+auxX-auxY,auxY);
-			cout<<raizPtr->getHospital().toString()<<endl<<endl;
+			cout<<raizPtr->getHospital().getId()<<endl<<endl;
 			imprimirArbol(raizPtr->getDerechaPtr(),auxY+2);
 		}
 	}

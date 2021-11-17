@@ -3,13 +3,18 @@ using namespace std;
 #include <windows.h>
 #include "Hospital.h"
 #include "NodoHospital.h"
-#include "ArbolHospital.h"				
+#include "ArbolHospital.h"
+
+#include "Ebais.h"
+#include "NodoEbais.h"
+#include "ArbolEbais.h"
 int main (int argc, char *argv[]) {
 	int opc=0, id=0, opcion=0;
 	string provincia ="", nombreHosp = "";
 	Hospital hospital;
 	ArbolHospital *arbolhospital = new ArbolHospital();
-	do{
+	ArbolEbais *arbolebais = new ArbolEbais();
+ 	do{
 		system("cls");
 		cout<<"\t****MENU DE OPCIONES"<<endl
 			<<"1. Agregar Hospital"<<endl
@@ -17,6 +22,7 @@ int main (int argc, char *argv[]) {
 			<<"3. PostOrden"<<endl
 			<<"4. PreOrden"<<endl
 			<<"5. InOrden"<<endl
+			<<"6. Agregar Ebais"<<endl
 			<<"0. Salir"<<endl
 			<<"Elija?: ";
 		cin>>opcion;
@@ -49,6 +55,7 @@ int main (int argc, char *argv[]) {
 						hospital.setId(id);
 						hospital.setProvincia(provincia);
 						arbolhospital->insertarNodo(arbolhospital->raizPtr,hospital);
+						opc=0;
 					}else{
 						cout<<"ID invalido intentelo de nuevo";
 					}
@@ -177,17 +184,23 @@ int main (int argc, char *argv[]) {
 			system("pause");
 			break;
 		case 3:
-			system("cls");
-			arbolhospital->imprimirArbol(arbolhospital->getRaizPtr(),0);
+			system("cls");			
 			arbolhospital->postOrden(arbolhospital->getRaizPtr());
 			system("pause");
 			break;
 		case 4:
+			system("cls");	
 			arbolhospital->preOrden(arbolhospital->getRaizPtr());
 			system("pause");
 			break;
 		case 5:
+			system("cls");	
 			arbolhospital->enOrden(arbolhospital->getRaizPtr());
+			system("pause");
+			break;
+		case 6:
+			system("cls");	
+			
 			system("pause");
 			break;
 		}

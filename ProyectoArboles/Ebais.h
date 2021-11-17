@@ -7,13 +7,13 @@ private:
 	int numUsuarios;
 	string especialidades;
 public:
-	Hospital(){
+	Ebais(){
 		this->nombre="";
 		this->director="";
 		this->numUsuarios=0;
 		this->especialidades="";
 	}
-	Hospital(string provincia, string director, int numUsuarios, string especialidades){
+	Ebais(string nombre, string director, int numUsuarios, string especialidades){
 		this->nombre=nombre;
 		this->director=director;
 		this->numUsuarios=numUsuarios;
@@ -41,8 +41,18 @@ public:
 	void setEspecialidades(string especialidades){
 		this->especialidades=especialidades;
 	}
-		string getEspecialidades(){
-			return this->especialidades;
-		}	
-		
+	string getEspecialidades(){
+		return this->especialidades;
+	}	
+	string toString(){
+		stringstream out;
+		out
+			<<"======================"<<endl
+			<<"Nombre del Ebais: "<<nombre<<endl
+			<<"Director del Ebais: "<<director<<endl
+			<<"Numero de Usuario: "<<numUsuarios<<endl
+			<<"Especialidades: "<<especialidades<<endl
+			<<"======================"<<endl;
+		return out.str();
+	}	
 };
