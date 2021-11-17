@@ -14,24 +14,24 @@ public:
 		this->id=id;
 		this->provincia=provincia;
 	}
-		void setId(int id){
-			this->id=id;
-		}
-			int getId(){
-				return this->id;
-			}
-				void setProvincia(string provincia){
-					this->provincia=provincia;
-				}
-					string getProvincia(){
-						return this->provincia;
-					}					
-						string toString(){
-							stringstream out;
-							out
-							    <<"Id del Hospital: "<<id<<endl
-								<<"Provincia del hospital: "<<provincia<<endl
-								<<"======================"<<endl;
-							return out.str();
-						}
+	void setId(int id){
+		this->id=id;
+	}
+	int getId(){
+		return this->id;
+	}
+	void setProvincia(string provincia){
+		this->provincia=provincia;
+	}
+	string getProvincia(){
+		return this->provincia;
+	}					
+	string toString(){
+		stringstream out;
+		out
+			<<"Id del Hospital: "<<id<<endl
+			<<"Provincia del hospital: "<<provincia<<endl
+			<<"======================"<<endl;
+		return out.str();
+	}
 };
