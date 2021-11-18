@@ -85,17 +85,26 @@ public:
 			
 		}
 	}
-	bool buscarEbais(NodoEbais *&raizPtr, Ebais ebais){
-		int valorRaiz = (raizPtr)->getEbais().getId();
-		if(ebais .getId() < valorRaiz){
-			buscarEbais(raizPtr->izquierdaPtr,ebais);
-			return false;
-		}else if (ebais .getId()==valorRaiz){
-			return true;
-		}else { 
-			return false;
+		void buscarEbais(string nombre, NodoEbais *aux){
+			if(aux==NULL){
+				cout<<" No ha ingresado ningun Ebais"<<endl;
+			}else{
+				if(aux->getEbais().getNombre()==nombre){
+					cout<<" El Ebais Si Existe!! "<<endl;
+				
+				}else{
+					if(aux->getDerechaPtr()!=NULL){
+						buscarEbais(nombre,aux->getDerechaPtr());
+					}
+					if(aux->getIzquierdaPtr()!=NULL){
+						buscarEbais(nombre,aux->getIzquierdaPtr());
+					}else{
+						cout<<" El Ebais NO Existe!! "<<endl;
+						
+					}
+				}
+			}
 		}
-	}	
 
 };
 #endif

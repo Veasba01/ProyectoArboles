@@ -14,8 +14,7 @@ int main (int argc, char *argv[]) {
 	Hospital hospital;
 	Ebais ebais;
 	string nombre, director, especialidades;
-	int numUsuarios, cantEsp;
-	bool busqueda;
+	int numUsuarios;
 	ArbolHospital *arbolhospital = new ArbolHospital();
 	NodoHospital *nodohospital;
 	NodoEbais *nodoebais;
@@ -33,6 +32,7 @@ int main (int argc, char *argv[]) {
 			<<"7. Buscar la existencia de un Hospital"<<endl
 			<<"8. Buscar la existencia de un Ebais"<<endl
 			<<"9. Recorridos PostOrden-PreOrden-InOrden "<<endl
+			<<"10. Eliminar Hospital "<<endl
 			<<"0. Salir"<<endl
 			<<"Elija?: ";
 		cin>>opcion;
@@ -234,8 +234,6 @@ int main (int argc, char *argv[]) {
 				cin>>director;
 				cout<<"Digite el Numero de usuarios en el Ebais: "<<endl;
 				cin>>numUsuarios;
-				cout<<"Cuantas Especialidades tendra el Ebais?: "<<endl;
-				cin>>cantEsp;
 				cout<<"Digite las especialidades: "<<endl;
 				cin>>especialidades;
 				ebais.setId(id);
@@ -263,16 +261,11 @@ int main (int argc, char *argv[]) {
 			system("cls");
 			cout<<"Digite el Id del Hospital: "<<endl;
 			cin>>id;
+			dec = arbolhospital->verificar(id, nodohospital);
 			if(dec == true){
 				cout<<"Digite el Nombre del Ebais que desea saber si Existe: "<<endl;
 				cin>>nombre;
-				ebais.setId(id);
-				busqueda = arbolebais->buscarEbais(arbolebais->raizPtr, ebais);
-				if(busqueda == true){
-					cout<<"El Ebais si existe!"<<endl;
-				}else{
-					cout<<"El NO Ebais existe!"<<endl;
-				}
+			arbolebais->buscarEbais(nombre, nodoebais);
 			}else{
 				cout<<"Este Hospital no existe, intentelo de nuevo"<<endl;
 				
@@ -295,6 +288,13 @@ int main (int argc, char *argv[]) {
 				arbolhospital->enOrden(arbolhospital->getRaizPtr());
 				arbolebais->enOrden(arbolebais->getRaizPtr());
 			}
+			system("pause");
+			break;
+		case 10:
+			system("cls");
+			cout<<"Digiste el ID del Hospital que desea Eliminar: "<<endl;
+			cin>>id;
+			arbolhospital->eliminar(arbolhospital->raizPtr,id);
 			system("pause");
 			break;
 		}

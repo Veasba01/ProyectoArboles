@@ -123,31 +123,38 @@ public:
 			   }
 		   }
 	   }
-	   /*void BorrarHospital(NodoHospital *nodoEliminar){
-		   
-		   if(nodoEliminar -> getIzquierdaPtr() && nodoEliminar -> getDerechaPtr()){
-			   NodoHospital *id = arbol (nodoEliminar -> getDerechaPtr());//arbol??
-			   nodoEliminar -> datto = id -> datto;
-			   BorrarHospital(id);
-		   }
-		   else if(nodoEliminar->getIzquierdaPtr()){
-			   reemplazar(nodoEliminar, nodoEliminar->getIzquierdaPtr());
+//----------------------------------------------------------------------		   
+   NodoHospital *minimo(NodoHospital *nodo){
+	   if(nodo == NULL){
+		   return NULL;
+	   }
+	   if(nodo->izquierdaPtr){
+		   return minimo(nodo->izquierdaPtr);
+	   }
+	   else{
+		   return nodo;
+	   }
+   }
+	   void eliminarNodo(NodoHospital *nodo){
+		   if(nodo->izquierdaPtr && nodo->derechaPtr){
+			   NodoHospital *menor = minimo(nodo->derechaPtr);
+			   nodo->hospital = menor->hospital;
+			   eliminarNodo(menor);
 		   }
 	   }
-	   
-	   void reemplazar(NodoHospital *aux, NodoHospital *NuevoNodo){
-		   if(aux->izquierdaPtr){
-			   if(aux->datto = aux->izquierdaPtr->getIzquierdaPtr()->datto){
-				   aux->izquierdaPtr->setIzquierdaPtr(NuevoNodo);
+		   void eliminar(NodoHospital *nodo, int dato){
+			   if(nodo == NULL){
+				   return;
 			   }
-			   else if(aux->datto = aux->izquierdaPtr->getDerechaPtr()->datto){
-				   aux->izquierdaPtr->setDerechaPtr(NuevoNodo);
-				   
+			   else if(dato > nodo->hospital.getId()){
+				   eliminar(nodo->izquierdaPtr,dato);
 			   }
-			   if(NuevoNodo){
-				   NuevoNodo = aux->izquierdaPtr;
+			   else if(dato > nodo->hospital.getId()){
+				   eliminar(nodo->derechaPtr,dato);
+			   }
+			   else{
+				   eliminarNodo(nodo);
 			   }
 		   }
-	   }*/
 };
 #endif
