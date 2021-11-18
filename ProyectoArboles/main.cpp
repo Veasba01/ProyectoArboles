@@ -9,13 +9,13 @@ using namespace std;
 #include "NodoEbais.h"
 #include "ArbolEbais.h"
 int main (int argc, char *argv[]) {
-	int opc=0, id=0, opcion=0;
+	int opc=0, id=0, opcion=0, opc2=0;
 	string provincia ="", nombreHosp = "";
 	Hospital hospital;
 	Ebais ebais;
 	string nombre, director, especialidades;
 	int numUsuarios, cantEsp;
-	
+	bool busqueda;
 	ArbolHospital *arbolhospital = new ArbolHospital();
 	ArbolEbais *arbolebais = new ArbolEbais();
  	do{
@@ -27,6 +27,9 @@ int main (int argc, char *argv[]) {
 			<<"4. PreOrden"<<endl
 			<<"5. InOrden"<<endl
 			<<"6. Agregar Ebais"<<endl
+			<<"7. Buscar la existencia de un Hospital"<<endl
+			<<"8. Buscar la existencia de un Ebais"<<endl
+			<<"9. Recorridos PostOrden-PreOrden-InOrden "<<endl
 			<<"0. Salir"<<endl
 			<<"Elija?: ";
 		cin>>opcion;
@@ -213,7 +216,9 @@ int main (int argc, char *argv[]) {
 			system("cls");
 			cout<<"Digite el ID del hospital que desea agregar este Ebais: "<<endl;
 			cin>>id;
-			if(arbolhospital->buscarHospital(arbolhospital->raizPtr,id) == true){
+			hospital.setId(id);
+			busqueda = arbolhospital->buscarHospital(arbolhospital->raizPtr, hospital);
+			if(busqueda == true){
 				cout<<"Digite el Nombre del Ebais: "<<endl;
 				cin>>nombre;
 				cout<<"Digite el Director del Ebais: "<<endl;
@@ -234,6 +239,59 @@ int main (int argc, char *argv[]) {
 			}else{
 				cout<<"Este Hospital no existe, intentelo de nuevo"<<endl;
 				
+			}
+			system("pause");
+			break;
+		case 7:
+			system("cls");	
+			cout<<"Digite el ID del hospital que desea saber si Existe: "<<endl;
+			cin>>id;
+			hospital.setId(id);
+			busqueda = arbolhospital->buscarHospital(arbolhospital->raizPtr, hospital);
+			if(busqueda == true){
+				cout<<"Este Hospital si existe!"<<endl;
+			}else{
+				cout<<"Este Hospital no existe!"<<endl;
+			}
+			system("pause");
+			break;
+		case 8:
+			system("cls");
+			cout<<"Digite el Id del Hospital: "<<endl;
+			cin>>id;
+			hospital.setId(id);
+			busqueda = arbolhospital->buscarHospital(arbolhospital->raizPtr, hospital);
+			if(busqueda == true){
+				cout<<"Digite el Nombre del Ebais que desea saber si Existe: "<<endl;
+				cin>>nombre;
+				ebais.setId(id);
+				busqueda = arbolebais->buscarEbais(arbolebais->raizPtr, ebais);
+				if(busqueda == true){
+					cout<<"El Ebais si existe!"<<endl;
+				}else{
+					cout<<"El NO Ebais existe!"<<endl;
+				}
+			}else{
+				cout<<"Este Hospital no existe, intentelo de nuevo"<<endl;
+				
+			}			
+			system("pause");
+			break;
+		case 9:
+			system("cls");
+			cout<<"1. PosOrden"<<endl
+				<<"2. PreOrden"<<endl
+				<<"3. InOrden"<<endl;
+				cin>>opc2;
+			if(opc2 == 1){
+				arbolhospital->postOrden(arbolhospital->getRaizPtr());
+				arbolebais->postOrden(arbolebais->getRaizPtr());
+			}else if(opc2 == 2){
+				arbolhospital->preOrden(arbolhospital->getRaizPtr());
+				arbolebais->preOrden(arbolebais->getRaizPtr());
+			}else if(opc2 == 3){
+				arbolhospital->enOrden(arbolhospital->getRaizPtr());
+				arbolebais->enOrden(arbolebais->getRaizPtr());
 			}
 			system("pause");
 			break;

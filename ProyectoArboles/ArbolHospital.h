@@ -80,18 +80,42 @@ public:
 			
 		}
 	}
-   bool buscarHospital(NodoHospital *&raizPtr, int id){
-	   int valorRaiz = (raizPtr)->getHospital(). getId();
-	   if(id < valorRaiz){
-		   buscarHospital(raizPtr->izquierdaPtr,id);
+   bool buscarHospital(NodoHospital *&raizPtr, Hospital hospital){
+	   int valorRaiz = (raizPtr)->getHospital().getId();
+	   if(hospital .getId() < valorRaiz){
+		   buscarHospital(raizPtr->izquierdaPtr,hospital);
 		   return false;
-	   }else if (id==valorRaiz){
+	   }else if (hospital .getId()==valorRaiz){
 		   return true;
-		   system("pause>0" );
 	   }else { 
-		   buscarHospital(raizPtr->derechaPtr,id);
 		   return false;
 	   }
    }
+	   /*void BorrarHospital(NodoHospital *nodoEliminar){
+		   
+		   if(nodoEliminar -> getIzquierdaPtr() && nodoEliminar -> getDerechaPtr()){
+			   NodoHospital *id = arbol (nodoEliminar -> getDerechaPtr());//arbol??
+			   nodoEliminar -> datto = id -> datto;
+			   BorrarHospital(id);
+		   }
+		   else if(nodoEliminar->getIzquierdaPtr()){
+			   reemplazar(nodoEliminar, nodoEliminar->getIzquierdaPtr());
+		   }
+	   }
+	   
+	   void reemplazar(NodoHospital *aux, NodoHospital *NuevoNodo){
+		   if(aux->izquierdaPtr){
+			   if(aux->datto = aux->izquierdaPtr->getIzquierdaPtr()->datto){
+				   aux->izquierdaPtr->setIzquierdaPtr(NuevoNodo);
+			   }
+			   else if(aux->datto = aux->izquierdaPtr->getDerechaPtr()->datto){
+				   aux->izquierdaPtr->setDerechaPtr(NuevoNodo);
+				   
+			   }
+			   if(NuevoNodo){
+				   NuevoNodo = aux->izquierdaPtr;
+			   }
+		   }
+	   }*/
 };
 #endif

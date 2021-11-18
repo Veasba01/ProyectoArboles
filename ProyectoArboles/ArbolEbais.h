@@ -85,7 +85,17 @@ public:
 			
 		}
 	}
-		
+	bool buscarEbais(NodoEbais *&raizPtr, Ebais ebais){
+		int valorRaiz = (raizPtr)->getEbais().getId();
+		if(ebais .getId() < valorRaiz){
+			buscarEbais(raizPtr->izquierdaPtr,ebais);
+			return false;
+		}else if (ebais .getId()==valorRaiz){
+			return true;
+		}else { 
+			return false;
+		}
+	}	
 
 };
 #endif
