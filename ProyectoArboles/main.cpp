@@ -17,6 +17,9 @@ int main (int argc, char *argv[]) {
 	int numUsuarios, cantEsp;
 	bool busqueda;
 	ArbolHospital *arbolhospital = new ArbolHospital();
+	NodoHospital *nodohospital;
+	NodoEbais *nodoebais;
+	bool dec;
 	ArbolEbais *arbolebais = new ArbolEbais();
  	do{
 		system("cls");
@@ -54,13 +57,14 @@ int main (int argc, char *argv[]) {
 					cout<<"Rango de ID valido: 100 - 199"<<endl;
 					cout<<"Digite el ID del hospital: "<<endl;
 					cin>>id;
-					if(id > 100 && id <= 199){
+					if(id >= 100 && id <= 199){
 						cout<<"Digite el Nombre del hospital: "<<endl;
 						cin>>nombreHosp;
 						provincia ="San Jose";
 						hospital.setNombreHosp(nombreHosp);
 						hospital.setId(id);
 						hospital.setProvincia(provincia);
+						nodohospital=new NodoHospital(hospital);
 						arbolhospital->insertarNodo(arbolhospital->raizPtr,hospital);
 						opc=0;
 					}else{
@@ -74,13 +78,14 @@ int main (int argc, char *argv[]) {
 					cout<<"Rango de ID valido: 200 - 299"<<endl;
 					cout<<"Digite el ID del hospital: "<<endl;
 					cin>>id;
-					if(id > 200 && id <= 299){
+					if(id >= 200 && id <= 299){
 						cout<<"Digite el Nombre del hospital: "<<endl;
 						cin>>nombreHosp;
 						provincia ="Alajuela";	
 						hospital.setNombreHosp(nombreHosp);
 						hospital.setId(id);
 						hospital.setProvincia(provincia);
+						nodohospital=new NodoHospital(hospital);
 						arbolhospital->insertarNodo(arbolhospital->raizPtr,hospital);
 						opc=0;
 					}else{
@@ -94,13 +99,14 @@ int main (int argc, char *argv[]) {
 					cout<<"Rango de ID valido: 300 - 399"<<endl;
 					cout<<"Digite el ID del hospital: "<<endl;
 					cin>>id;
-					if(id > 300 && id <= 399){
+					if(id >= 300 && id <= 399){
 						cout<<"Digite el Nombre del hospital: "<<endl;
 						cin>>nombreHosp;
 						provincia ="Cartago";
 						hospital.setNombreHosp(nombreHosp);
 						hospital.setId(id);
 						hospital.setProvincia(provincia);
+						nodohospital=new NodoHospital(hospital);
 						arbolhospital->insertarNodo(arbolhospital->raizPtr,hospital);
 						opc=0;
 					}else{
@@ -114,13 +120,14 @@ int main (int argc, char *argv[]) {
 					cout<<"Rango de ID valido: 400 - 499"<<endl;
 					cout<<"Digite el ID del hospital: "<<endl;
 					cin>>id;
-					if(id > 400 && id <= 499){
+					if(id >= 400 && id <= 499){
 						cout<<"Digite el Nombre del hospital: "<<endl;
 						cin>>nombreHosp;
 						provincia ="Heredia";
 						hospital.setNombreHosp(nombreHosp);
 						hospital.setId(id);
 						hospital.setProvincia(provincia);
+						nodohospital=new NodoHospital(hospital);
 						arbolhospital->insertarNodo(arbolhospital->raizPtr,hospital);
 						opc=0;
 					}else{
@@ -134,13 +141,14 @@ int main (int argc, char *argv[]) {
 					cout<<"Rango de ID valido: 500 - 599"<<endl;
 					cout<<"Digite el ID del hospital: "<<endl;
 					cin>>id;
-					if(id > 500 && id <= 599){
+					if(id >= 500 && id <= 599){
 						cout<<"Digite el Nombre del hospital: "<<endl;
 						cin>>nombreHosp;
 						provincia ="Guanacaste";
 						hospital.setId(id);
 						hospital.setProvincia(provincia);
 						hospital.setNombreHosp(nombreHosp);
+						nodohospital=new NodoHospital(hospital);
 						arbolhospital->insertarNodo(arbolhospital->raizPtr,hospital);
 						opc=0;
 					}else{
@@ -154,13 +162,14 @@ int main (int argc, char *argv[]) {
 					cout<<"Rango de ID valido: 600 - 699"<<endl;
 					cout<<"Digite el ID del hospital: "<<endl;
 					cin>>id;
-					if(id > 600 && id <= 699){
+					if(id >= 600 && id <= 699){
 						cout<<"Digite el Nombre del hospital: "<<endl;
 						cin>>nombreHosp;
 						provincia ="Puntarenas";
 						hospital.setNombreHosp(nombreHosp);
 						hospital.setId(id);
 						hospital.setProvincia(provincia);
+						nodohospital=new NodoHospital(hospital);
 						arbolhospital->insertarNodo(arbolhospital->raizPtr,hospital);
 						opc=0;
 					}else{
@@ -174,13 +183,14 @@ int main (int argc, char *argv[]) {
 					cout<<"Rango de ID valido: 700 - 799"<<endl;
 					cout<<"Digite el ID del hospital: "<<endl;
 					cin>>id;
-					if(id > 700 && id <= 799){
+					if(id >= 700 && id <= 799){
 						cout<<"Digite el Nombre del hospital: "<<endl;
 						cin>>nombreHosp;
 						provincia ="Limon";
 						hospital.setNombreHosp(nombreHosp);
 						hospital.setId(id);
 						hospital.setProvincia(provincia);
+						nodohospital=new NodoHospital(hospital);
 						arbolhospital->insertarNodo(arbolhospital->raizPtr,hospital);
 						opc=0;
 					}else{
@@ -216,9 +226,8 @@ int main (int argc, char *argv[]) {
 			system("cls");
 			cout<<"Digite el ID del hospital que desea agregar este Ebais: "<<endl;
 			cin>>id;
-			hospital.setId(id);
-			busqueda = arbolhospital->buscarHospital(arbolhospital->raizPtr, hospital);
-			if(busqueda == true){
+			dec = arbolhospital->verificar(id, nodohospital);
+			if(dec == true){
 				cout<<"Digite el Nombre del Ebais: "<<endl;
 				cin>>nombre;
 				cout<<"Digite el Director del Ebais: "<<endl;
@@ -234,6 +243,7 @@ int main (int argc, char *argv[]) {
 				ebais.setDirector(director);
 				ebais.setNumUsuarios(numUsuarios);
 				ebais.setEspecialidades(especialidades);
+				nodoebais=new NodoEbais(ebais);
 				arbolebais->insertarNodo(arbolebais->raizPtr,ebais);
 				
 			}else{
@@ -246,22 +256,14 @@ int main (int argc, char *argv[]) {
 			system("cls");	
 			cout<<"Digite el ID del hospital que desea saber si Existe: "<<endl;
 			cin>>id;
-			hospital.setId(id);
-			busqueda = arbolhospital->buscarHospital(arbolhospital->raizPtr, hospital);
-			if(busqueda == true){
-				cout<<"Este Hospital si existe!"<<endl;
-			}else{
-				cout<<"Este Hospital no existe!"<<endl;
-			}
+			arbolhospital->buscarHospital(id, nodohospital);
 			system("pause");
 			break;
 		case 8:
 			system("cls");
 			cout<<"Digite el Id del Hospital: "<<endl;
 			cin>>id;
-			hospital.setId(id);
-			busqueda = arbolhospital->buscarHospital(arbolhospital->raizPtr, hospital);
-			if(busqueda == true){
+			if(dec == true){
 				cout<<"Digite el Nombre del Ebais que desea saber si Existe: "<<endl;
 				cin>>nombre;
 				ebais.setId(id);

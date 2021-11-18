@@ -80,17 +80,49 @@ public:
 			
 		}
 	}
-   bool buscarHospital(NodoHospital *&raizPtr, Hospital hospital){
-	   int valorRaiz = (raizPtr)->getHospital().getId();
-	   if(hospital .getId() < valorRaiz){
-		   buscarHospital(raizPtr->izquierdaPtr,hospital);
-		   return false;
-	   }else if (hospital .getId()==valorRaiz){
-		   return true;
-	   }else { 
-		   return false;
+	   void buscarHospital(int id, NodoHospital *aux){
+		   if(aux==NULL){
+			   cout<<" No ha ingresado ningun Hospital"<<endl;
+		   }else{
+			   if(aux->getHospital().getId()==id){
+				   cout<<" El Hospital Si Existe!! "<<endl;
+				   cout<<"Su Nombre es: "<<aux->getHospital().getNombreHosp()<<endl;
+				   
+				   
+			   }else{
+				   if(aux->getDerechaPtr()!=NULL){
+					   buscarHospital(id,aux->getDerechaPtr());
+				   }
+				   if(aux->getIzquierdaPtr()!=NULL){
+					   buscarHospital(id,aux->getIzquierdaPtr());
+				   }else{
+					   cout<<" El Hospital NO Existe!! "<<endl;
+					  
+				   }
+			   }
+		   }
 	   }
-   }
+	   bool verificar(int id, NodoHospital *aux){
+		   if(aux==NULL){
+			   return false;
+		   }else{
+			   if(aux->getHospital().getId()==id){
+				   return true;
+				   
+				   
+			   }else{
+				   if(aux->getDerechaPtr()!=NULL){
+					   verificar(id,aux->getDerechaPtr());
+				   }
+				   if(aux->getIzquierdaPtr()!=NULL){
+					   verificar(id,aux->getIzquierdaPtr());
+				   }else{
+					   return false;
+					   
+				   }
+			   }
+		   }
+	   }
 	   /*void BorrarHospital(NodoHospital *nodoEliminar){
 		   
 		   if(nodoEliminar -> getIzquierdaPtr() && nodoEliminar -> getDerechaPtr()){
